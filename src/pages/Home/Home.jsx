@@ -8,6 +8,7 @@ import axios from "axios"
 import { useEffect } from 'react'
 import axiosInstance from '../../utils/axiosInstance'
 import { useNavigate } from 'react-router-dom'
+import moment from "moment"
 
 function Home() {
 
@@ -94,19 +95,20 @@ function Home() {
     getUserInfo();
     
   }, [])
+  
   return (
     <div>
       
-      <Navbar/>
+      <Navbar userInfo = {userInfo}/>
       <div className='container mx-auto my-auto'>
         <div className='grid grid-cols-3 gap-4 mt-8'>
         {
-
+          
           notesData?.map( (item) => {
             return <NoteCard 
             key={item._id}
             title={item.title}
-            date={item.createdOn} 
+            date={moment(item.createdOn).format('Do MMMM  YYYY, h:mm A')} 
             content={item.content} 
             isPinned={item.isPinned}
             onEdit={()=> handleEdit(item)}
@@ -154,7 +156,7 @@ function Home() {
               () => {
                 setOpenEditNote({
                   isShown: false, 
-                  type: "add", 
+                  type: "edit", 
                   data: null,
                 })
               }

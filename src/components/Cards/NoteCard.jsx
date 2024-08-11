@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {MdCreate, MdDelete, MdOutlinePushPin} from 'react-icons/md';
 
 function NoteCard({
@@ -10,8 +10,9 @@ function NoteCard({
     onDelete,
     onPin
 }) {
-  return (
-    <div className='border rounded p-4 bg-white hover:shadow-xl transition-all ease-in-out'>
+    return (
+
+    <div className={`border rounded p-4 bg-indigo-50 hover:shadow-xl transition-all ease-in-out`}>
       <div className='flex items-center justify-between'>
         <div>
             <h6 className='text-sm font-medium'>{title}</h6>

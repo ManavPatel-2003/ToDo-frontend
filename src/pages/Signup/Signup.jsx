@@ -123,7 +123,8 @@ function Signup() {
           <p className="mt-10 text-center text-sm text-gray-500">
             Already Registered?{' '}
             <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-              <Link to='/login'>
+              {/* changed login path from /login to /*/}
+              <Link to='/'>
               Sign in
               </Link>
             </a>
